@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Главная страница
+{% endblock %}
+
+{% block login %}
+<div class="col-md-3">
+    <button onclick="location.href = '/login/vk-oauth2';"
+            class="btn btn-outline-dark">
+        Войти с помощью VK
+    </button>
+    <button type="button" class="btn btn-outline-dark">
+        Войти с помощью google
+    </button>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="bg-dark text-secondary px-4 py-5 text-center">
+    <div class="py-5">
+        <h1 class="display-5 fw-bold text-white">Сохрани свои воспоминания</h1>
+        <div class="col-lg-6 mx-auto">
+            <p class="fs-5 mb-4">
+                Отлично провел выходные и хочешь сохранить это надолго?
+                Тогда воспользуйся нашим сервисом. Все, что тебе требуется,
+                лишь
+                выбрать точку на карте и добавить описание.
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}
