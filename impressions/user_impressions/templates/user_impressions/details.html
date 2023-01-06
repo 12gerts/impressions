@@ -1,0 +1,42 @@
+{% extends 'base_with_user.html' %}
+
+{% block head %}
+<script src="https://api-maps.yandex.ru/2.1/?apikey=372311f8-bf87-4459-8554-d81d8479b12c&lang=ru_RU"></script>
+<script src="../../static/user_impressions/js/show_location.js"></script>
+{% endblock %}
+
+{% block home %}
+{% include 'home_button.html' %}
+{% endblock %}
+
+
+{% block content %}
+<body class="bg-light">
+<div class="container">
+    <main>
+        <div class="py-5 text-left">
+            <h2>{{ remember.title|title }}</h2>
+            <div id="YMapsID" class="card-img-top"
+                 style="width: 930px; height: 350px"></div>
+        </div>
+        <div class="card col-15 col-lg-10">
+            <div class="card-body">
+                <p class="card-text">
+                    <small id="remember_location">{{ remember.location }}</small>
+                </p>
+                <p class="card-text">{{ remember.body }}</p>
+            </div>
+        </div>
+        <p></p>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
+            <button onclick="location.href = '{% url "home" %}';"
+            class="btn btn-outline-secondary px-5">Назад
+            </button>
+            <button onclick="location.href = '{{ remember.get_absolute_delete_url }}';"
+                    class="btn btn-danger px-5">Удалить
+            </button>
+        </div>
+    </main>
+</div>
+</body>
+{% endblock %}

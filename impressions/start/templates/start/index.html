@@ -7,19 +7,19 @@
 {% block login %}
 <div class="col-md-3">
     <button onclick="location.href = '/login/vk-oauth2';"
-            class="btn btn-outline-dark">
+            class="btn btn-outline-secondary">
         Войти с помощью VK
     </button>
-    <button type="button" class="btn btn-outline-dark">
+    <button type="button" class="btn btn-outline-secondary">
         Войти с помощью google
     </button>
 </div>
 {% endblock %}
 
-{% block content %}
-<div class="bg-dark text-secondary px-4 py-5 text-center">
+{% block content_user %}
+<div class="bg-light text-secondary px-4 py-5 text-center">
     <div class="py-5">
-        <h1 class="display-5 fw-bold text-white">Сохрани свои воспоминания</h1>
+        <h1 class="display-5 fw-bold text-dark">Сохрани свои воспоминания</h1>
         <div class="col-lg-6 mx-auto">
             <p class="fs-5 mb-4">
                 Отлично провел выходные и хочешь сохранить это надолго?

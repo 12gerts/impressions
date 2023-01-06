@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 import os
 from pathlib import Path
-from .secret_key import key, secret
+from .secret_key import key_vk, secret_vk
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'social_django',
+    'user_impressions',
     'start'
 ]
 
@@ -137,8 +138,8 @@ LOGIN_REDIRECT_URL = '/'
 LOGOUT_URL = 'logout'
 LOGOUT_REDIRECT_URL = '/'
 
-SOCIAL_AUTH_VK_OAUTH2_KEY = key
-SOCIAL_AUTH_VK_OAUTH2_SECRET = secret
+SOCIAL_AUTH_VK_OAUTH2_KEY = key_vk
+SOCIAL_AUTH_VK_OAUTH2_SECRET = secret_vk
 SOCIAL_AUTH_VK_APP_USER_MODE = 2
 
 SOCIAL_AUTH_PIPELINE = [

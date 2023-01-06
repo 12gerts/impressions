@@ -1,0 +1,46 @@
+{% extends 'base_with_user.html' %}
+
+{% block title %} Мои воспоминания {% endblock %}
+
+
+{% block head %}
+<script src="https://api-maps.yandex.ru/2.1/?apikey=372311f8-bf87-4459-8554-d81d8479b12c&lang=ru_RU"></script>
+{% endblock %}
+
+
+{% block content %}
+<body class="bg-light">
+<main>
+    {% if remembers %}
+    <div class="container" id="remembers">
+        {% for remember in remembers %}
+        <div class="card text-center border-muted">
+            <div class="card-body">
+                <h5 class="card-header">{{ remember.title }}</h5>
+                <p class="text-muted">{{ remember.location }}</p>
+                <p class="card-text">{{ remember.body }}</p>
+                <a href="{{ remember.get_absolute_url }}"
+                   class="btn btn-light">Подробнее</a>
+            </div>
+        </div>
+        <p></p>
+        {% endfor %}
+        {% else %}
+        <div class="bg-light text-secondary px-4 py-5 text-center">
+            <div class="py-5">
+                <h1 class="display-12 fw-bold text-black">У вас нет ни одного
+                    воспоминания”</h1>
+            </div>
+        </div>
+        {% endif %}
+        <div class="text-secondary px-4 py-5 text-center">
+            <a class="w-40 btn btn-secondary btn-lg" id="btn_add"
+               href="{% url 'create_remember' %}">
+                Добавить воспоминание
+            </a>
+        </div>
+    </div>
+</main>
+</div>
+</body>
+{% endblock %}

@@ -7,5 +7,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('start.urls'), name="login"),
     path('', include("social_django.urls"), name="social"),
-    path("logout/", auth_views.LogoutView.as_view(), name="logout")
+    path("logout/", auth_views.LogoutView.as_view(), name="logout"),
+    path('remember/', include("user_impressions.urls"),
+         name="home_page")
 ]
