@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 import os
 from pathlib import Path
-from .secret_key import key_vk, secret_vk
+from .secret_key import key_vk, secret_vk, key_google, secret_google
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -104,7 +104,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 AUTHENTICATION_BACKENDS = (
     'social_core.backends.vk.VKOAuth2',
-    'django.contrib.auth.backends.ModelBackend',
+    "social_core.backends.google.GoogleOAuth2",
+    'django.contrib.auth.backends.ModelBackend'
 )
 
 # Internationalization
@@ -128,10 +129,7 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-AUTHENTICATION_BACKENDS = [
-    'social_core.backends.vk.VKOAuth2',
-    'django.contrib.auth.backends.ModelBackend',
-]
+SOCIAL_AUTH_URL_NAMESPACE = 'social'
 
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = '/'
@@ -141,6 +139,8 @@ LOGOUT_REDIRECT_URL = '/'
 SOCIAL_AUTH_VK_OAUTH2_KEY = key_vk
 SOCIAL_AUTH_VK_OAUTH2_SECRET = secret_vk
 SOCIAL_AUTH_VK_APP_USER_MODE = 2
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = key_google
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = secret_google
 
 SOCIAL_AUTH_PIPELINE = [
     'social_core.pipeline.social_auth.social_details',

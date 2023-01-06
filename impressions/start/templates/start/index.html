@@ -6,13 +6,8 @@
 
 {% block login %}
 <div class="col-md-3">
-    <button onclick="location.href = '/login/vk-oauth2';"
-            class="btn btn-outline-secondary">
-        Войти с помощью VK
-    </button>
-    <button type="button" class="btn btn-outline-secondary">
-        Войти с помощью google
-    </button>
+    <a href='/login/vk-oauth2' class="btn btn-outline-secondary" target="_blank">Войти с помощью VK</a>
+    <a href="{% url 'social:begin' 'google-oauth2' %}" class="btn btn-outline-secondary" target="_blank">Войти с помощью google</a>
 </div>
 {% endblock %}
 
