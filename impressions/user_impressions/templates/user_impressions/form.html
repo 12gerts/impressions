@@ -44,10 +44,14 @@
                             <span class="text-muted">(Optional)</span></label>
                         {{ form.body }}
                         <p></p>
-                        <button class="w-50 btn btn-secondary btn-lg"
-                                type="submit" id="submit_remember_form">
-                            Сохранить
-                        </button>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
+                            <button class="w-50 btn btn-secondary btn-lg"
+                                    type="submit" id="submit_remember_form">
+                                Сохранить
+                            </button>
+                            <a class="w-50 btn btn-outline-secondary btn-lg"
+                               href="{% url 'home' %}">Назад</a>
+                        </div>
                     </div>
                 </div>
             </form>
