@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 import os
 from pathlib import Path
-from .secret_key import key_vk, secret_vk, key_google, secret_google
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -136,11 +135,11 @@ LOGIN_REDIRECT_URL = '/'
 LOGOUT_URL = 'logout'
 LOGOUT_REDIRECT_URL = '/'
 
-SOCIAL_AUTH_VK_OAUTH2_KEY = key_vk
-SOCIAL_AUTH_VK_OAUTH2_SECRET = secret_vk
+SOCIAL_AUTH_VK_OAUTH2_KEY = os.environ.get("IMPRESSIONS_VK_KEY")
+SOCIAL_AUTH_VK_OAUTH2_SECRET = os.environ.get("IMPRESSIONS_VK_SECRET")
 SOCIAL_AUTH_VK_APP_USER_MODE = 2
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = key_google
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = secret_google
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.environ.get("IMPRESSIONS_GOOGLE_KEY")
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.environ.get("IMPRESSIONS_GOOGLE_SECRET")
 
 SOCIAL_AUTH_PIPELINE = [
     'social_core.pipeline.social_auth.social_details',
