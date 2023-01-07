@@ -12,7 +12,7 @@ def translit(text):
 def to_slug_from_title(title, username):
     symbols = [',', '.', '!', '&', '?', '+', '~', '{', '}', '(', ')', '\\',
                '/', '*', '@', '$', '^', '<', '>', '№', '\'', '"', ';', ':',
-               '`']
+               '`', '%', '#']
     for symbol in symbols:
         title = title.replace(symbol, '')
     return f"{username}-{translit(title).replace(' ', '-')}"
