@@ -7,8 +7,7 @@ def get_avatar(backend, strategy, details, response,
     if backend.name == 'vk-oauth2':
         url = response.get('photo', '')
     if backend.name == 'google-oauth2':
-        url = response['image'].get('url')
-        ext = url.split('.')[-1]
+        url = response['picture']
     if url:
         try:
             profile = Profile.objects.get(user=user)
